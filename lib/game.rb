@@ -19,6 +19,11 @@ class Game
 
   def attack(player)
     player.reduce_hp(Player::DEFAULT_DAMAGE)
+    switch_turns
   end
+
+  def switch_turns
+    @current_turn = (current_turn == player_1 ? player_2 : player_1)
+  end 
 
 end

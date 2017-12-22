@@ -7,4 +7,9 @@ describe Game do
     subject.attack(subject.player_1)
   end
 
+  it 'should switch turns' do
+    subject.switch_turns
+    expect(subject.current_turn).to eq(subject.player_2)
+  end
+
 end
