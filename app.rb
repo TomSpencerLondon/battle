@@ -26,12 +26,20 @@ class Battle < Sinatra::Base
     erb(:play)
   end
 
+  get '/gameover' do
+    @winner = (Game.instance.player_1.hp == 0 ? game.instance.player_2.name : Game.instance.player_1.name)
+    erb(:gameover)
+  end
+
   post '/attack' do
     params[:attack] == Game.instance.player_1.name ? Game.instance.attack(Game.instance.player_1) : Game.instance.attack(Game.instance.player_2)
+    redirect '/gameover' if Game.instance.game_over
     session[:attack] = "#{params[:attack]} has been attacked!"
     session[:next_turn] = (Game.instance.current_turn == Game.instance.player_1 ? 2 : 1)
     redirect '/play'
   end
+
+
 
 
   #Start the server if ruby file executed directly
