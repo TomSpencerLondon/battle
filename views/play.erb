@@ -1,0 +1,74 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<div class="img_container">
+  <div class="float_left">
+    <h1><%= @p1_name %> </h1> <br>
+    <img src="https://i.pinimg.com/736x/e0/e8/5b/e0e85bd7c27c528e3c89d527032e004a--roman-centurion-roman-warriors.jpg"><br>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+      aria-valuemin="0" aria-valuemax="100" style="width:<%= @p1_hp %>%">
+      <%= @p1_hp %>
+    </div>
+  </div>
+  <% if session[:next_turn] == 1 %>
+  <form action="/attack" method="post">
+    <button class="btn btn-primary" type="submit" value="<%= @p1_name %>" name="attack">Attack <%= @p1_name%></button>
+  </form>
+  <% end %>
+</div>
+  <div class="float_right">
+    <h1><%= @p2_name%> </h1> <br>
+    <img src="https://i.pinimg.com/736x/52/2c/ca/522cca77d87f399cb2aa6da75b21a9a2--greek-warrior-spartan-warrior.jpg"> <br>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+      aria-valuemin="0" aria-valuemax="100" style="width:<%= @p2_hp %>%">
+      <%= @p2_hp %>
+      </div>
+    </div>
+    <% if session[:next_turn] == 2 %>
+    <form action="/attack" method="post">
+      <button class="btn btn-primary" type="submit" value="<%= @p2_name %>" name="attack">Attack <%= @p2_name %></button>
+    </form>
+    <% end %>
+  </div>
+</div>
+
+<% if !!@message %>
+  <h2><%= @message %></h2>
+<% end %>
+
+<style>
+  img{width: 200px;
+      height: 200px
+  }
+
+  .float_left{
+    float: left;
+  }
+  .float_right{
+    float: right;
+  }
+  .img_container{
+    margin: auto;
+    margin-top: 13%;
+    width: 50%;
+    border: 3px solid green;
+    height: 50%;
+    padding: 10px;
+  }
+
+  h2{
+    text-align: center;
+  }
+  h1{
+    text-align: center;
+  }
+</style>

@@ -9,6 +9,23 @@ class Battle < Sinatra::Base
     erb(:index)
   end
 
+  post '/names' do
+    session.delete(:attack)
+    #Game has singleton like behaviour (but we can init with params)
+    Game.create_new_game(params[:name_1], params[:name_2])
+    session[:next_turn] = 2
+    redirect '/play'
+  end
+
+  get '/play' do
+    @message = session[:attack]
+    @p1_name = Game.instance.player_1.name
+    @p2_name = Game.instance.player_2.name
+    @p1_hp = Game.instance.player_1.hp
+    @p2_hp = Game.instance.player_2.hp
+    erb(:play)
+  end
+
   #Start the server if ruby file executed directly
-  run! if app_file = $0
+  run! if app_file == $0
 end
