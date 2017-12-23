@@ -12,40 +12,14 @@
 * sinatra
 * rspec-sinatra
 * capybara
-* selenium-webdriver
-* shotgun
 
-### Clone the project
-```
-$ git clone https://github.com/adrianeyre/battle
-$ cd battle
-$ bundle
-```
-
-### Change day branch
-```
-$ git checkout <branch>
-```
-where `<branch>` is either day-two, day-three, day-four or day-five
-
-### Ruby version
-Battle is ran on Ruby version : 2.3.1
-
-* To change Ruby versions
-```shell
-$ rvm 2.3.1
-```
-* To install Ruby 2.3.1
-```shell
-$ rvm install ruby-2.3.1
-```
 * To install Gems
 ```shell
 $ gem install bundle
 $ bundle
 ```
 ## <a name="Run">Running Battle</a>
-Battle is ran on the Sinatra framework
+Battle is run on the Sinatra framework
 
 ### Test in browser
 Terminal
