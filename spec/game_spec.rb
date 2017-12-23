@@ -12,4 +12,13 @@ describe Game do
     expect(subject.current_turn).to eq(subject.player_2)
   end
 
+  describe '#game_over' do
+    it 'should confirm game is over when player dies' do
+      10.times{ |i| subject.attack(subject.player_1)}
+      expect(subject.game_over).to be(true)
+    end
+    it 'should confirm game is not over when neither player has died' do
+      expect(subject.game_over).to be(false)
+    end
+  end
 end
