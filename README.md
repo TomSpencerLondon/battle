@@ -1,7 +1,7 @@
 # Battle
 ### [Makers Academy](http://www.makersacademy.com) - Week 3 Pair Programming Project
 
-[Project Setup](#Setup) | [Running Battle](#Run) | [User Story](#Story) | [Play Live](#Live) | [Screen Shots](#Shots)
+[Project Setup](#Setup) | [Running Battle](#Run) | [User Stories](#Stories) 
 
 ## <a name="Outline">Outline</a>
 
@@ -31,7 +31,7 @@ Browser
 http://localhost:4567/
 ```
 
-## <a name="Story">User Story</a>
+## <a name="Stories">User Stories</a>
 ```
 As two Players,
 So we can play a personalised game of Battle,
